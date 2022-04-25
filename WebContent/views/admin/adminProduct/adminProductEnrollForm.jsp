@@ -42,7 +42,6 @@
 	width: 400px;
 	height: 300px;
 	background-color: rgb(175, 175, 175);	
-	
 }
 /* 상품 이미지의 button 태그 */
 #imgBtn{
@@ -50,7 +49,6 @@
 	padding: 0;
 	border: 0;
 	font-size: large;
-
 	width: 400px;
 	height: 300px;
 	opacity: 0;

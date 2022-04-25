@@ -36,7 +36,7 @@ public class FAQDao {
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		//selectList=SELECT FAQ_TYPE, FAQ_QUES, FAQ_ANS FROM FAQ
+
 		String sql = prop.getProperty("selectList");		
 		
 		try {

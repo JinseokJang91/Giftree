@@ -38,11 +38,8 @@ public class adminOrderListViewServlet extends HttpServlet {
 		
 		request.setAttribute("orderList", orderList);
 		request.setAttribute("list", list);
-		//System.out.println("받은orderList : " + orderList);
-		//System.out.println("받은list : " + list);
 		
 		request.getRequestDispatcher("views/admin/adminOrder/adminOrderList.jsp").forward(request, response);
-		
 	}
 
 	/**

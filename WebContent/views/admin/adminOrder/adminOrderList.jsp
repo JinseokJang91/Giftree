@@ -85,7 +85,6 @@ ArrayList<adminOrder> orderList = (ArrayList<adminOrder>)request.getAttribute("o
 	width: 33%;
 	height: 100%;
 	padding: 12px;
-	
 	text-align: left;
 }
 .orderInfo>h6{
@@ -114,6 +113,7 @@ ArrayList<adminOrder> orderList = (ArrayList<adminOrder>)request.getAttribute("o
 <body id="bodyAt">
 <div class="wrapper">
 	<%@ include file="/views/common/menubar.jsp"%>
+	
 	<div class="container-fluid" id="middleSection">
 		<div class="row">
 			<%-- 관리자 페이지 메뉴바 --%>
@@ -134,7 +134,7 @@ ArrayList<adminOrder> orderList = (ArrayList<adminOrder>)request.getAttribute("o
 					  <input type="text" class="form-control" id="searchTitle">
 					  <button class="btn btn-primary" onclick="searchFunction();" type="button">검색</button>
 					</div>
-
+					<%-- 검색 관련 스크립트 --%>
 					<script type="text/javascript">
 						function checkTitle(searchTitle){
 				            var checkNum = /[0-9]/;
@@ -351,7 +351,7 @@ ArrayList<adminOrder> orderList = (ArrayList<adminOrder>)request.getAttribute("o
 											</div>
 										</div>
 									</div>
-	
+									<%-- 주문 내역 상태 관련 스크립트 --%>
 		                            <script>
 		                            function cancelModify<%=i+1%>(){
 		                            	var cancelNum = <%=list.get(i).getOrdersStatus()%>;

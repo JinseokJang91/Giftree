@@ -40,12 +40,6 @@ public class adminOrderDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		//selectDetailList=
-		//SELECT A.ORDER_DETAIL_NO, A.ORDER_NO, B.PROD_NAME, A.USER_ID, C.ORDER_DATE
-		//, A.ORDERS_AMOUNT, A.ORDERS_STATUS, A.PROD_NO, A.ORDERS_PRICE, A.FOREST_NAME
-		//FROM ORDERS_DETAIL A JOIN PRODUCT B ON A.PROD_NO=B.PROD_NO 
-		//JOIN ORDERS C ON A.ORDER_NO=C.ORDER_NO
-		
 		String sql = prop.getProperty("selectDetailList");
 		
 		try {
@@ -61,7 +55,6 @@ public class adminOrderDao {
 				aol.setOrderDate(rset.getDate("ORDER_DATE"));
 				aol.setOrderAmount(rset.getInt("ORDERS_AMOUNT"));
 				aol.setOrdersStatus(rset.getInt("ORDERS_STATUS"));
-				
 				aol.setOrderNo(rset.getInt("ORDER_NO"));
 				aol.setProdNo(rset.getInt("PROD_NO"));
 				aol.setOrdersPrice(rset.getInt("ORDERS_PRICE"));
@@ -70,8 +63,6 @@ public class adminOrderDao {
 				list.add(aol);
 				
 			}
-			//System.out.println("주문다오list : " + list);
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -89,8 +80,6 @@ public class adminOrderDao {
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		
-		//selectOrderList=SELECT * FROM ORDERS
 		
 		String sql = prop.getProperty("selectOrderList");
 		
@@ -113,7 +102,6 @@ public class adminOrderDao {
 				orderList.add(ao);
 				
 			}
-			//System.out.println("주문다오list : " + orderList);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -130,8 +118,7 @@ public class adminOrderDao {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		
-		//updateOrder=UPDATE ORDERS_DETAIL SET ORDERS_STATUS=? WHERE ORDER_DETAIL_NO=?
+
 		String sql = prop.getProperty("updateOrder");
 		
 		try {

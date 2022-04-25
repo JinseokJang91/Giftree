@@ -57,9 +57,6 @@ public class AnswerDao {
 				qna.setQuesContent(rset.getString("QUES_CONTENT"));
 				qna.setUserId(rset.getString("USER_ID"));
 				qna.setQuesDate(rset.getDate("QUES_DATE"));
-				
-				//System.out.println(rset.getString("ANS_CONTENT"));
-				
 				qna.setAnsContent(rset.getString("ANS_CONTENT")); 
 				
 				/* 이렇게 써도 결과는 같으나 jsp에서 null을 확인하는게 맞는 듯
@@ -69,8 +66,6 @@ public class AnswerDao {
 								
 				list.add(qna);
 			}
-			//System.out.println("list : " + list);
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -86,13 +81,8 @@ public class AnswerDao {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		//updateAns=UPDATE QNA SET ANS_CONTENT=?, ANS_DATE=SYSDATE WHERE QUES_NO=?
 		
 		String sql = prop.getProperty("updateAns");
-		
-		//System.out.println("다오sql : " + sql);
-		//System.out.println("다오qna1 : " + qna.getAnsContent());
-		//System.out.println("다오qna1 : " + qna.getQuesNo());
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -108,9 +98,6 @@ public class AnswerDao {
 		}finally {
 			close(pstmt);
 		}
-		
-		
-		
 		return result;
 	}
 

@@ -75,10 +75,6 @@ public class adminProductUpdateServlet extends HttpServlet {
 				at.setRef_pno(Integer.parseInt(mpr.getParameter("prodNo")));
 			}
 			
-			
-			//System.out.println("수정서블릿ap : " + ap);
-			//System.out.println("수정서블릿at : " + at);
-			
 			int result = new adminProductService().updateProduct(ap, at);
 			
 			if(result > 0) {

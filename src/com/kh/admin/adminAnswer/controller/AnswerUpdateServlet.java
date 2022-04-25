@@ -45,9 +45,7 @@ public class AnswerUpdateServlet extends HttpServlet {
 		}else {
 			request.setAttribute("msg", "1:1문의 답변 수정 실패");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
-		}
-		
-		
+		}	
 	}
 
 	/**

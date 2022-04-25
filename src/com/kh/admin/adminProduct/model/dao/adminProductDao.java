@@ -36,10 +36,7 @@ public class adminProductDao {
 		ArrayList<adminProduct> list = new ArrayList<adminProduct>();
 		
 		PreparedStatement pstmt = null;
-		ResultSet rset = null;		
-		
-		//selectList="SELECT PROD_NO, PROD_NAME, PROD_CATEGORY, PROD_PRICE
-		//			       , PROD_AMOUNT FROM PRODUCT WHERE PROD_STATUS='Y'"
+		ResultSet rset = null;
 		
 		String sql = prop.getProperty("selectProdList");		
 		
@@ -75,17 +72,8 @@ public class adminProductDao {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
-		//insertProduct=INSERT INTO PRODUCT VALUES (PRODUCT_S.NEXTVAL, ?, ?, ?, ?, ?, DEFAULT)
 		String sql = prop.getProperty("insertProduct");
-		//PROD_NO
-		//PROD_NAME
-		//PROD_DETAIL
-		//PROD_CATEGORY
-		//PROD_PRICE
-		//PROD_AMOUNT
-		//PROD_STATUS
-		
-		
+
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
@@ -96,8 +84,6 @@ public class adminProductDao {
 			pstmt.setInt(5, ap.getProdAmount());
 			
 			result = pstmt.executeUpdate();
-			
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -112,15 +98,8 @@ public class adminProductDao {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		
-		//insertAttachment=INSERT INTO ATTACHMENT VALUES (ATTACHMENT_S.NEXTVAL, ?, ?, ?, PRODUCT_S.CURRVAL)
 
 		String sql = prop.getProperty("insertAttachment");
-		//FILE_NO
-		//ORIGIN_NAME
-		//CHANGE_NAME
-		//FILE_PATH
-		//REF_PNO
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -130,7 +109,6 @@ public class adminProductDao {
 			pstmt.setString(3, at.getFilePath());
 			
 			result = pstmt.executeUpdate();
-
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -147,15 +125,13 @@ public class adminProductDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		//selectProduct=SELECT PROD_NO, PROD_CATEGORY, PROD_NAME, PROD_PRICE, PROD_AMOUNT, PROD_DETAIL FROM PRODUCT WHERE PROD_STATUS = 'Y' AND PROD_NO=?
 		String sql = prop.getProperty("selectProduct");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, prodNo);
-			//System.out.println("다오prodNo : " + prodNo);
-			rset = pstmt.executeQuery();
 			
+			rset = pstmt.executeQuery();
 			if(rset.next()) {
 				/*
 				 * ap = new adminProduct( rset.getString("PROD_NAME"),
@@ -193,8 +169,7 @@ public class adminProductDao {
 		Attachment at = null;		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		
-		//selectAttachment=SELECT FILE_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, REF_PNO FROM ATTACHMENT WHERE REF_PNO=?
+
 		String sql = prop.getProperty("selectAttachment");
 		
 		try {
@@ -226,12 +201,9 @@ public class adminProductDao {
 
 	public int updateProduct(Connection conn, adminProduct ap) {
 		
-		//System.out.println("수정전ap : " + ap);
 		int result = 0;
 		PreparedStatement pstmt = null;
-		
-		//updateProduct=UPDATE PRODUCT SET 
-		//PROD_NAME=?, PROD_DETAIL=?, PROD_CATEGORY=?, PROD_PRICE=?, PROD_AMOUNT=? WHERE PROD_NO=?
+
 		String sql = prop.getProperty("updateProduct");		
 		
 		try {
@@ -251,10 +223,7 @@ public class adminProductDao {
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
-		}		
-		
-		//System.out.println("수정후ap : " + ap);
-		//System.out.println("수정result : " + result);
+		}
 		
 		return result;
 	}
@@ -262,10 +231,6 @@ public class adminProductDao {
 	public int updateAttachment(Connection conn, Attachment at) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		
-		// #쿼리 나중에 정확하게 수정
-		//updateAttachment=UPDATE ATTACHMENT SET
-		//ORIGIN_NAME=?, CHANGE_NAME=?, FILE_PATH=? WHERE REF_PNO=? AND FILE_NO=?
 
 		String sql = prop.getProperty("updateAttachment");		
 		
@@ -294,9 +259,7 @@ public class adminProductDao {
 
 		int result =0;
 		PreparedStatement pstmt = null;
-		
-		//상품 삭제는 STATUS를 N으로 변경해서 삭제
-		//deleteProduct=UPDATE PRODUCT SET PROD_STATUS='N' WHERE PROD_NO=?
+
 		String sql = prop.getProperty("deleteProduct");
 		
 		try {
@@ -320,9 +283,7 @@ public class adminProductDao {
 		
 		int result =0;
 		PreparedStatement pstmt = null;
-		
-		//이미지 삭제는 현재 STATUS 컬럼이 없으므로 DELETE문 사용(나중에 변경)
-		//deleteAttachment=DELETE FROM ATTACHMENT WHERE REF_PNO=?
+
 		String sql = prop.getProperty("deleteAttachment");
 		
 		try {

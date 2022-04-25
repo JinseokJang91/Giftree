@@ -35,21 +35,14 @@ public class adminOrderUpdateServlet extends HttpServlet {
 		int orderDetailNo = Integer.parseInt(request.getParameter("orderDetailNo"));
 		int selectResult = Integer.parseInt(request.getParameter("selectResult"));
 		
-		//System.out.println("orderDetailNo:"+orderDetailNo);
-		//System.out.println("selectResult:"+selectResult);
-		
 		int result = new adminOrderService().updateOrder(orderDetailNo, selectResult);
 		
 		if(result > 0) {
-			//request.getSession().setAttribute("msg", "주문내역 수정 성공");
 			response.sendRedirect("orderList.ad");
 		}else {
 			request.getSession().setAttribute("msg", "주문내역 수정 실패");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
-		
-		
-		
 	}
 
 	/**

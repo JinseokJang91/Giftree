@@ -37,9 +37,7 @@ public class AnswerFormServlet extends HttpServlet {
 		ArrayList<QNA> list = new AnswerService().selectAnsList();
 		
 		int qnaNo = Integer.parseInt(request.getParameter("qnaNo"));
-		//System.out.println("qnaNo : " + qnaNo);
 		QNA qna = null;
-		
 		
 		for(int i=0; i<list.size(); i++) {
 			if(list.get(i).getQuesNo() == qnaNo) {
@@ -49,20 +47,13 @@ public class AnswerFormServlet extends HttpServlet {
 					list.get(i).setAnsContent((list.get(i).getAnsContent()).replaceAll("<br>", "\n"));
 					qna = list.get(i);
 				}						
-				
 			}
 		}		
-	
-		//System.out.println("qna : " + qna);
+
 		if(qna != null) {
 			request.setAttribute("qna", qna);
 			request.getRequestDispatcher("views/mypage/answer/QNAAnswerForm.jsp").forward(request, response);
 		}
-		//System.out.println("확인");
-		
-		
-		
-		
 	}
 
 	/**

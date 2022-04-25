@@ -48,7 +48,6 @@ public class adminProductEnrollServlet extends HttpServlet {
 			
 			MultipartRequest mpr = new MultipartRequest(request, savePath, fileSize, "utf-8", new ImgFileRenamePolicy());
 			
-			
 			// 여기부터는 전송받은 데이터의 DB전송을 위한 작업 과정	
 			//1. jsp 상품 정보
 			adminProduct ap = new adminProduct();
@@ -88,12 +87,8 @@ public class adminProductEnrollServlet extends HttpServlet {
 				request.getSession().setAttribute("msg", "제품 등록 실패");
 				
 				request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
-				
 			}
-						
-			
 		}
-		
 	}
 
 	/**

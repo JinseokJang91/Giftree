@@ -70,7 +70,6 @@
 	padding: 0;
 	border: 0;
 	font-size: large;
-	
 	width: 400px;
 	height: 300px;
 	opacity: 0;
